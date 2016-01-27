@@ -63,14 +63,16 @@ func main() {
 	defer window.Destroy()
 	//sdl.ShowCursor(0)
 	window.UpdateSurface()
-	surface, err := window.GetSurface()
-	if err != nil {
-		panic(err)
-	}
+
 	renderer, err := sdl.CreateRenderer(window, -1, sdl.RENDERER_ACCELERATED)
 	if err != nil {
 		panic(err)
 	}
+	surface, err := window.GetSurface()
+	if err != nil {
+		panic(err)
+	}
+
 	controlManager := inputManager.GetControlManager()
 
 	updateFunctionsToStartWith := make([]inputManager.Update, 1)
